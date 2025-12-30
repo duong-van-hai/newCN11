@@ -121,32 +121,80 @@ let studentClass = "";
 
 // --- DỮ LIỆU CÂU HỎI ---
 
-// BANK A (Cũ - 12 câu)
+// BANK A (MỚI - 36 câu từ file docx)
 const BANK_A = [
-    {q: "Vai trò của cơ khí chế tạo trong ngành giao thông vận tải được thể hiện qua sản phẩm nào?", a: ["Máy chụp cộng hưởng từ (MRI)", "Hệ thống tưới tiêu tự động", "Động cơ ô tô, xe máy", "Máy xay xát lúa gạo"], c: "Mg=="},
-    {q: "Trong một dây chuyền sản xuất ô tô, ai là người trực tiếp lắp đặt động cơ vào khung xe?", a: ["Công nhân lắp ráp cơ khí", "Giám đốc nhà máy", "Kỹ sư thiết kế kiểu dáng xe", "Nhân viên bảo vệ nhà máy"], c: "MA=="},
-    {q: "Một trong những tính chất hoá học của vật liệu cơ khí là", a: ["tính cứng", "tính dẫn điện", "tính dẫn nhiệt", "tính chịu ăn mòn"], c: "Mw=="},
-    {q: "Tính chất nào sau đây đặc trưng cho khả năng chống lại biến dạng dẻo hay phá hủy của kim loại dưới tác dụng của ngoại lực?", a: ["Tính dẫn nhiệt", "Tính đúc", "Độ bền (tính bền)", "Khối lượng riêng"], c: "Mg=="},
-    {q: "Vật liệu nào có thể ghi nhớ được hình dạng ban đầu của nó?", a: ["Vật liệu có cơ tính biến thiên", "Nano", "Hợp kim nhớ hình", "Vật liệu kim loại và hợp kim"], c: "Mg=="},
-    {q: "Phương pháp nào sau đây thuộc nhóm “Gia công có phoi” (gia công cắt gọt)?", a: ["Tiện", "Đúc", "Rèn", "Hàn"], c: "MA=="},
-    {q: "Ưu điểm của công nghệ chế tạo phôi bằng phương pháp hàn?", a: ["Mối hàn kém bền", "Mối hàn hở", "Dễ cong vênh", "Tiết kiệm kim loại"], c: "Mw=="},
-    {q: "Trên máy tiện vạn năng, chi tiết gắn dao khi tiện là", a: ["mâm cặp", "ụ động", "bàn gá dao", "hộp tốc độ"], c: "Mg=="},
-    {q: "Sắp xếp các giai đoạn sau đúng với trình tự của quá trình sản xuất cơ khí?", a: ["Chế tạo phôi -> Gia công -> xử lí và bảo vệ -> lắp ráp -> đóng gói", "Gia công -> chế tạo phôi -> kiểm tra -> lắp ráp -> đóng gói", "Gia công -> chế tạo phôi -> lắp ráp -> kiểm tra -> đóng gói", "Chế tạo phôi -> Gia công -> lắp ráp -> kiểm tra -> đóng gói"], c: "MA=="},
-    {q: "Bước “Xử lý và bảo vệ bề mặt” bao gồm các hoạt động nào sau đây?", a: ["Tiện, phay, bào, khoan", "Đúc, rèn, dập", "Sơn, mạ, phủ hóa chất chống ăn mòn", "Lắp ráp bu lông, đai ốc"], c: "Mg=="},
-    {q: "Robot công nghiệp là thiết bị tự động có khả năng gì nổi bật nhất?", a: ["Tự động suy nghĩ như con người", "Thực hiện các thao tác theo chương trình được lập trình sẵn", "Di chuyển với tốc độ ánh sáng", "Tự sửa chữa khi bị hỏng hóc"], c: "MQ=="},
-    {q: "Một dây chuyền đóng gói thực phẩm tự động sử dụng robot để xếp thùng carton lên pallet. Đây là ứng dụng của robot trong công đoạn nào?", a: ["Gia công", "Lắp ráp", "Kiểm tra", "Vận chuyển và xếp dỡ"], c: "Mw=="}
-];
-
-// BANK B (Cũ - 8 câu)
-const BANK_B = [
     {q: "Nghề nghiệp trong lĩnh vực cơ khí gắn với những công việc nào? Chọn đáp án đúng nhất", a: ["Thiết kế sản phẩm cơ khí; Gia công cơ khí; Bảo dưỡng thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Gia công cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng và sửa chữa thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng và sửa chữa thiết bị cơ khí"], c: "Mg=="},
     {q: "Nghề nghiệp trong lĩnh vực cơ khí không bao gồm công việc nào dưới đây?", a: ["Thiết kế sản phẩm cơ khí", "Gia công cơ khí", "Lắp ráp sản phẩm cơ khí", "Lên kế hoạch kinh doanh sản phẩm cơ khí"], c: "Mw=="},
-    {q: "Gia công cơ khí là gì?", a: ["là quá trình chế tạo sản phẩm cơ khí", "là quá trình nghiên cứu, thiết kế tính toán kích thước", "là giai đoạn cuối cùng của quá trình sản xuất", "là công việc chăm sóc, thực hiện kiểm tra"], c: "MA=="},
+    {q: "Gia công cơ khí là gì?", a: ["là quá trình chế tạo sản phẩm cơ khí", "là quá trình nghiên cứu, thiết kế tính toán kích thước và các thông số...", "là giai đoạn cuối cùng của quá trình sản xuất", "là công việc chăm sóc, thực hiện kiểm tra"], c: "MA=="},
+    {q: "Lắp ráp sản phẩm cơ khí là gì?", a: ["là quá trình chế tạo sản phẩm cơ khí", "là quá trình nghiên cứu, thiết kế tính toán kích thước", "là giai đoạn cuối cùng của quá trình sản xuất nhằm tổ hợp các chi tiết thành thiết bị hoặc sản phẩm hoàn chỉnh", "là công việc chăm sóc, thực hiện kiểm tra"], c: "Mg=="},
+    {q: "Hoạt động thiết kế cơ khí chế tạo là gì?", a: ["là quá trình chế tạo sản phẩm cơ khí", "là quá trình nghiên cứu, thiết kế tính toán kích thước và các thông số của các chi tiết máy để đảm bảo yêu cầu kinh tế - kĩ thuật đặt ra.", "là giai đoạn cuối cùng của quá trình sản xuất", "là công việc chăm sóc, thực hiện kiểm tra"], c: "MQ=="},
+    {q: "Nghề nghiệp thuộc nhóm công việc bảo dưỡng, sửa chữa thiết bị cơ khí là:", a: ["kĩ sư kĩ thuật cơ khí, kĩ sư cơ điện tử", "Thợ cắt gọt kim loại, thợ hàn, thợ rèn", "Kĩ sư, kĩ thuật viên kĩ thuật cơ khí, kĩ thuật viên máy, công cụ,…", "Một đáp án khác"], c: "Mg=="},
+    {q: "Nghề nghiệp thuộc nhóm công việc thiết kế sản phẩm cơ khí là:", a: ["kĩ sư kĩ thuật cơ khí, kĩ sư cơ điện tử", "Thợ cắt gọt kim loại, thợ hàn, thợ rèn", "Kĩ sư, kĩ thuật viên kĩ thuật cơ khí", "Một đáp án khác"], c: "MA=="},
+    {q: "Máy công cụ điều khiển số CNC gồm có loại máy nào?", a: ["Máy tiện", "Máy phay, bào", "Máy khoan, mài", "Tất cả các đáp án trên đều đúng"], c: "Mw=="},
+    {q: "Người lao động trong ngành cơ khí cần:", a: ["Biết sử dụng các phần mềm phục vụ thiết kế.", "Tự học, tự bồi dưỡng nâng cao trình độ chuyên môn", "Có óc sáng tạo, tư duy nhanh nhạy", "Cả 3 đáp án trên"], c: "Mw=="},
+    {q: "Những người thực hiện nhóm công việc bảo dưỡng, sửa chữa thiết bị cơ khí cần đáp ứng những yêu cầu:", a: ["Có kiến thức chuyên sâu về tháo lắp, kiểm tra, bảo dưỡng, sửa chữa,…", "Có sức khỏe tốt", "Có trình độ đào tạo phù hợp, kĩ năng nghề nghiệp thành thạo", "Cả 3 đáp án trên đều đúng"], c: "Mw=="},
+    {q: "Chuyên ngành “kĩ thuật cơ khí” không thuộc nhóm công việc nào sau đây:", a: ["Thiết kế sản phẩm cơ khí", "Gia công cơ khí", "Lắp ráp sản phẩm cơ khí", "Bảo dưỡng, sửa chữa thiết bị cơ khí"], c: "MQ=="},
+    {q: "Người thực hiện nhóm công việc lắp ráp sản phẩm thường làm việc ở đâu?", a: ["Các phân xưởng lắp ráp sản phẩm của các nhà máy cơ khí, nhà máy chế tạo ô tô, xe máy,…", "Các doanh nghiệp bảo trì, bảo dưỡng", "Các phân xưởng sản xuất", "Các phòng kĩ thuật"], c: "MA=="},
+    {q: "Người thực hiện nhóm công việc thiết kế sản phẩm cơ khí thường làm việc ở đâu?", a: ["Các phân xưởng lắp ráp sản phẩm", "Các doanh nghiệp bảo trì, bảo dưỡng", "Các phân xưởng sản xuất", "Các phòng kĩ thuật của các nhà máy cơ khí, trung tâm nghiên cứu phát triển..."], c: "Mw=="},
+    {q: "Người thực hiện nhóm công việc gia công cơ khí thường làm việc ở đâu?", a: ["Các phân xưởng lắp ráp sản phẩm", "Các doanh nghiệp bảo trì, bảo dưỡng", "Các phân xưởng sản xuất của các nhà máy sản xuất phụ tùng ô tô, xe máy, đóng tàu,…", "Các phòng kĩ thuật"], c: "Mg=="},
+    {q: "Vật liệu mới là gì?", a: ["Các loại vật liệu không nằm trong danh mục vật liệu truyền thống", "Các loại vật liệu tương tự như vật liệu phi kim loại", "Các loại vật liệu có tính cơ học", "Các loại vật liệu có độ bền cao, chi phí thấp"], c: "MA=="},
+    {q: "Vật liệu có thể thay đổi một số đặc tính dưới tác động của kích thích bên ngoài (nhiệt độ, điện trường...):", a: ["Vật liệu nano", "Vật liệu composite", "Vật liệu hợp kim nhớ hình, polymer nhớ hình", "Vật liệu cacbon"], c: "Mg=="},
+    {q: "Vật liệu nào dưới đây thuộc nhóm kim loại?", a: ["Gạch", "Thủy tinh", "Thép, gang", "Bê tông"], c: "Mg=="},
+    {q: "Yêu cầu nào sau đây thuộc yêu cầu về tính sử dụng đối với vật liệu cơ khí?", a: ["Phải có tính cơ học, tính vật lí và tính hóa học", "Phải có khả năng gia công bằng các phương pháp đúc, hàn...", "Phải đảm bảo giá thành thấp", "Một đáp án khác"], c: "MA=="},
+    {q: "Yêu cầu nào sau đây thuộc yêu cầu về tính công nghệ đối với vật liệu cơ khí?", a: ["Phải có tính cơ học, tính vật lí và tính hóa học", "Phải có khả năng gia công bằng các phương pháp đúc, hàn, gia công bằng áp lực, tính thấm tôi, tính cắt gọt,…", "Phải đảm bảo giá thành thấp", "Một đáp án khác"], c: "MQ=="},
+    {q: "Nhóm vật liệu nào được sử dụng phổ biến trong sản xuất cơ khí?", a: ["Vật liệu kim loại và hợp kim", "Vật liệu phi kim loại và hợp kim", "Vật liệu phi kim loại và vật liệu mới", "Vật liệu kim loại và vật liệu phi kim loại"], c: "MA=="},
+    {q: "Chất dẻo, cao su, gỗ thuộc loại vật liệu nào?", a: ["Vật liệu kim loại và hợp kim", "Vật liệu phi kim loại", "Vật liệu mới", "Vật liệu kim loại"], c: "MQ=="},
+    {q: "Sắt, đồng, nhôm thuộc loại vật liệu nào?", a: ["Vật liệu kim loại và hợp kim", "Vật liệu phi kim loại", "Vật liệu mới", "Vật liệu kim loại"], c: "MA=="},
+    {q: "Vật liệu nào sau đây thuộc nhóm vật liệu mới?", a: ["Sắt, đồng, nhôm", "Cao su, nhựa , gỗ", "nano, composite, polymer", "polymer, sắt, cao su"], c: "Mg=="},
+    {q: "Vật liệu mới có đặc điểm gì?", a: ["Có tính chất cách điện, cách nhiệt", "Có tính dẫn điện, dẫn nhiệt", "Có độ bền cao, độ cứng lớn hoặc có tính chất điện, nhiệt, hóa học,… vượt trội", "Có giá thành rẻ"], c: "Mg=="},
+    {q: "Vật liệu cơ khí được chia làm mấy loại?", a: ["1", "2", "3", "4"], c: "Mg=="},
+    {q: "Các chất nào sau đây được gọi là hợp kim?", a: ["Sắt", "Niken", "Đồng", "Thép cacbon"], c: "Mw=="},
+    {q: "Tính chất nào sau đây thuộc tính cơ học của vật liệu cơ khí?", a: ["Độ cứng, tính dẻo, tính bền", "Tính dẫn điện, tính dẫn nhiệt", "Tính chịu mòn hóa học", "Tính dẻo, tính dẫn điện"], c: "MA=="},
+    {q: "Tính chất nào sau đây thuộc tính vật lí của vật liệu cơ khí?", a: ["Độ cứng, tính dẻo, tính bền", "Tính dẫn điện, tính dẫn nhiệt", "Tính chịu mòn hóa học", "Tính dẻo, tính dẫn điện"], c: "MQ=="},
+    {q: "Tính chất nào sau đây thuộc tính hóa học của vật liệu cơ khí?", a: ["Độ cứng, tính dẻo, tính bền", "Tính dẫn điện, tính dẫn nhiệt", "Tính chịu mòn hóa học từ môi trường", "Tính dẻo, tính dẫn điện"], c: "Mg=="},
+    {q: "Lí do vật liệu phi kim loại được sử dụng rộng rãi là:", a: ["Dễ gia công", "Không bị oxy hóa", "Ít mài mòn", "Cả 3 đáp án trên"], c: "Mw=="},
+    {q: "Tính chất nào là tính chất cơ học của vật liệu cơ khí?", a: ["Tính cứng", "Tính dẫn điện", "Tính dẫn nhiệt", "Tính chịu axít"], c: "MA=="},
+    {q: "Những bộ phận nào của chiếc xe máy được làm bằng kim loại?", a: ["Lốp xe, yên xe, khung xe", "Khung xe, lọc gió, nhông xích đĩa", "Yên xe, khung xe, lọc gió", "Lốp xe, yên xe, phanh xe"], c: "MQ=="},
+    {q: "Những bộ phận nào của chiếc xe máy được làm bằng phi kim loại?", a: ["Lốp xe, yên xe, gương chiếu hậu", "Khung xe, lốp xe, yếm xe", "Phanh xe, lọc gió, bô xe", "Lốp xe, gương chiếu hậu, khung xe"], c: "MA=="},
+    {q: "Đâu là tính chất cơ học của kim loại và hợp kim của nó?", a: ["Tính dẻo, tính đàn hồi, tính chịu ăn mòn", "Tính dẻo, đàn hồi, độ bền nén nhất định", "Tính đàn hồi, tính giãn nở, tính dẫn nhiệt", "Tính đàn hồi, tính dẫn điện, tính dẫn nhiệt"], c: "MQ=="},
+    {q: "Tính chất vật lí cơ bản của kim loại thể hiện qua đâu?", a: ["Khối lượng riêng, nhiệt độ nóng chảy, tính giãn nở, tính dẫn nhiệt", "Khối lượng riêng, nhiệt độ nóng chảy, tính chịu ăn mòn", "Tính giãn nở, tính dẫn nhiệt, tính đàn hồi, độ bền", "Tính giãn nở, tính dẫn nhiệt, tính dẫn điện, tính chịu ăn mòn"], c: "MA=="},
+    {q: "Tính công nghệ của vật liệu kim loại thể hiện qua đâu?", a: ["Tính giãn nở, tính dẫn nhiệt, tính đàn hồi", "Tính đàn hồi, tính dẫn điện", "Tính rèn, tính đúc, tính hàn, tính mài", "Tính giãn nở, tính dẫn nhiệt, tính dẫn điện"], c: "Mg=="}
+];
+
+// BANK B (MỚI - 32 câu)
+const BANK_B = [
+    {q: "Nguồn gốc của cao su nhân tạo được chế biến từ đâu?", a: ["Than đá", "Dầu mỏ", "Cây cao su", "Than đá và dầu mỏ"], c: "Mw=="},
+    {q: "Cao su không có tính chất nào sau đây:", a: ["Tính đàn hồi cao", "Tính cách nhiệt", "Tính cách âm cao", "Tính dẫn điện"], c: "Mw=="},
+    {q: "Có mấy phương pháp đơn giản để nhận biết tính chất cơ bản của vật liệu kim loại?", a: ["2", "3", "4", "5"], c: "MQ=="},
+    {q: "Trong ngành cơ khí, nhựa nhiệt rắn được dùng để làm gì?", a: ["Chế tạo bu lông, ốc vít nhựa trong một số máy móc", "Chế tạo vỏ tàu thuyền, ô tô", "Sản xuất dụng cụ cắt, khuôn dập", "Dùng làm săm lốp, ống dẫn"], c: "MQ=="},
+    {q: "Trong ngành cơ khí, cao su được dùng để làm gì?", a: ["Chế tạo bu lông, ốc vít nhựa trong một số máy móc", "Chế tạo vỏ tàu thuyền, ô tô", "Sản xuất dụng cụ cắt, khuôn dập", "Dùng làm săm lốp, ống dẫn"], c: "Mw=="},
+    {q: "Để phân biệt nhựa nhiệt rắn với nhựa nhiệt dẻo ta có thể sử dụng phương pháp nào?", a: ["Quan sát đặc trưng quang học, vật liệu nào có tính chất trong suốt là nhựa rắn", "Dùng búa đập, vật liệu nào dễ gãy, vỡ là nhựa rắn", "Cả A và B đều đúng", "Cả A và B đều sai"], c: "MQ=="},
+    {q: "Sản phẩm nào dưới đây được làm bằng vật liệu cao su?", a: ["Can đựng rượu", "Vỏ công tắc điện", "Săm xe đạp", "Cốc nhựa uống nước"], c: "Mg=="},
+    {q: "Sản phẩm nào dưới đây được làm bằng vật liệu nhựa nhiệt rắn?", a: ["Khay đá được làm bằng nhựa HDPE", "Săm xe đạp", "Găng tay rửa bát", "Tủ sách nhựa"], c: "Mw=="},
+    {q: "Vì sao cao su có tính đàn hồi?", a: ["Phân tử khối lớn", "Có liên kết đôi", "Các mắt xích có cấu trúc cis lập thể điều hòa", "Không có nhiều tạp chất"], c: "Mg=="},
+    {q: "Vật liệu hợp kim nhớ hình là gì?", a: ["Vật liệu được tổ hợp từ hai hay nhiều loại vật liệu thành phần khác nhau trong đó bao gồm vật liệu cốt và vật liệu nền", "Vật liệu có cấu trúc hạt tinh thể có kích thước cỡ nanômét", "Vật liệu có tính biến thiên có thể thay đổi liên tục các tính chất của vật liệu trong không gian", "Vật liệu có thể ghi nhớ được hình dạng ban đầu của nó"], c: "Mw=="},
+    {q: "Vật liệu nano được ứng dụng trong lĩnh vực cơ khí nào?", a: ["Trong công nghiệp hàng không vũ trụ", "Trong công nghiệp chế tạo robot", "Trong chế tạo máy", "Cả 3 đáp án trên"], c: "Mw=="},
+    {q: "FGM là chữ viết tắt của loại vật liệu nào?", a: ["Vật liệu nano", "Vật liệu composite", "Vật liệu có cơ tính biến thiên", "Vật liệu hợp kim nhớ hình"], c: "Mg=="},
+    {q: "“Vật liệu có cơ tính biến thiên” còn có tên gọi khác là gì?", a: ["Vật liệu composite", "Vật liệu composite tiên tiến", "Vật liệu hợp kim nhớ hình", "Một đáp án khác"], c: "MQ=="},
+    {q: "Hợp kim nitinol là hợp kim của những vật liệu nào?", a: ["nickel và titanium", "nickel và carbon", "nickel và manganese", "nickel và magnesium"], c: "MA=="},
+    {q: "Đâu là hợp kim nhớ hình trong các hợp kim sau:", a: ["Fernico", "Nitinol", "Kova", "Inva"], c: "MQ=="},
+    {q: "Vật liệu nào sau đây có thể thay đổi hình dạng theo môi trường?", a: ["Vật liệu nano", "Vật liệu composite", "Vật liệu nhựa nhiệt dẻo", "Vật liệu hợp kim nhớ hình"], c: "Mw=="},
+    {q: "Vật liệu Composite không có tính chất nào sau đây:", a: ["Có độ cứng, độ bền cao", "Có khả năng chịu nhiệt", "Có khối lượng riêng lớn", "Có tính chống ăn mòn tốt"], c: "Mg=="},
+    {q: "Chương trình công nghệ 11 giới thiệu mấy loại vật liệu mới?", a: ["2", "3", "4", "5"], c: "Mg=="},
+    {q: "Vật liệu nền trong vật liệu composite được hiểu là những vật liệu như thế nào?", a: ["Có tác dụng tăng độ bền", "Có tác dụng liên kết vật liệu cốt lại với nhau", "Có tác dụng phân tách vật liệu cốt với nhau", "Có tác dụng thay đổi tính chất của vật liệu"], c: "MQ=="},
+    {q: "Trong chế tạo máy, vật liệu nano được dùng để làm gì?", a: ["Chế tạo các dụng cụ cắt gọt, các trục truyền, bánh răng,…", "Làm các lớp phủ lên các bạc trục, các trục để chống mài mòn", "Chế tạo linh kiện động cơ", "Một đáp án khác"], c: "MQ=="},
+    {q: "Trong công nghệ hàng không vũ trụ, vật liệu nano được dùng để làm gì?", a: ["Chế tạo vỏ máy bay", "Tham gia trong thành phần của động cơ tên lửa, thân máy bay", "Tạo ra các vật liệu siêu nhẹ - siêu bền dùng cho sản xuất các thiết bị máy bay, tàu vũ trụ", "Chế tạo cánh quạt máy bay thông minh và cánh máy bay"], c: "Mg=="},
+    {q: "Trong công nghệ hàng không vũ trụ, vật liệu composite được dùng để làm gì?", a: ["Chế tạo vỏ máy bay", "Tham gia trong thành phần của động cơ tên lửa, thân máy bay", "Tạo ra các vật liệu siêu nhẹ - siêu bền dùng cho sản xuất các thiết bị máy bay, tàu vũ trụ", "Chế tạo cánh quạt máy bay thông minh và cánh máy bay"], c: "MA=="},
+    {q: "Trong công nghệ hàng không vũ trụ, vật liệu có cơ tính biến thiên được dùng để làm gì?", a: ["Chế tạo vỏ máy bay", "Tham gia trong thành phần của động cơ tên lửa, thân máy bay", "Tạo ra các vật liệu siêu nhẹ - siêu bền dùng cho sản xuất các thiết bị máy bay, tàu vũ trụ", "Chế tạo cánh quạt máy bay thông minh và cánh máy bay"], c: "MQ=="},
+    {q: "Trong công nghệ hàng không vũ trụ, vật liệu hợp kim nhớ hình được dùng để làm gì?", a: ["Chế tạo vỏ máy bay", "Tham gia trong thành phần của động cơ tên lửa, thân máy bay", "Tạo ra các vật liệu siêu nhẹ - siêu bền dùng cho sản xuất các thiết bị máy bay, tàu vũ trụ", "Chế tạo cánh quạt máy bay thông minh và cánh máy bay"], c: "Mw=="},
+    {q: "Có thể khiến sợi dây bằng hợp kim nhớ hình nitinol trở về hình dạng ban đầu bằng cách nào?", a: ["Dùng búa đập thẳng sợi dây", "Cho sợi dây vào trong nước nóng", "Ngâm sợi dây trong dung dịch hóa chất", "Kéo giãn sợi dây rồi thả ra"], c: "MQ=="},
+    {q: "Trong cơ khí động lực, vật liệu có cơ tính biến thiên được dùng làm gì?", a: ["Chế tạo linh kiện động cơ", "Dùng làm lớp vỏ cách nhiệt để giảm thất thoát nhiệt từ các bộ phận của hệ thống xả động cơ", "Cả A và B đều đúng", "Cả A và B đều sai"], c: "Mg=="},
     {q: "Phân loại theo công nghệ gia công gồm:", a: ["Gia công cơ khí không phoi và gia công cơ khí có phoi", "Gia công cơ khí không phoi và gia công cơ khí truyền thống", "Gia công cơ khí truyền thống và gia công cơ khí có phoi", "Gia công cơ khí truyền thống và gia công cơ khí hiện đại"], c: "MA=="},
+    {q: "Phân loại theo lịch sử phát triển của công nghệ gia công gồm:", a: ["Gia công cơ khí không phoi và gia công cơ khí có phoi", "Gia công cơ khí không phoi và gia công cơ khí truyền thống", "Gia công cơ khí truyền thống và gia công cơ khí có phoi", "Gia công cơ khí truyền thống và gia công cơ khí hiện đại"], c: "Mw=="},
     {q: "Gia công cơ khí không phoi là quá trình", a: ["Gia công bằng tia lửa điện", "Gia công mà có một lượng vật liệu bị cắt gọt bỏ đi", "Gia công mà khối lượng vật liệu vẫn được giữ nguyên", "Gia công bằng siêu âm"], c: "Mg=="},
     {q: "Gia công cơ khí có phoi là quá trình", a: ["Gia công bằng tia lửa điện", "Gia công mà có một lượng vật liệu bị cắt gọt bỏ đi", "Gia công mà khối lượng vật liệu vẫn được giữ nguyên", "Gia công bằng siêu âm"], c: "MQ=="},
-    {q: "Sản phẩm của gia công cơ khí có phoi là:", a: ["Các chi tiết được chế tạo theo bản thiết kế", "Các sản phẩm thô nhẵn bề mặt thấp", "Vật liệu phôi ban đầu", "Máy móc xây dựng"], c: "MA=="},
-    {q: "Dụng cụ nào dùng để kẹp chặt phôi khi gia công trên máy tiện?", a: ["Ụ động", "Mâm cặp", "Bàn gá dao", "Trục chính"], c: "MQ=="}
+    {q: "Sản phẩm của gia công cơ khí có phoi là:", a: ["Các chi tiết được chế tạo theo bản thiết kế", "Các sản phẩm mới được tạo hình với kích thước thô và độ nhẵn bề mặt thấp", "Các chi tiết cơ khí trung gian", "Một đáp án khác"], c: "MA=="},
+    {q: "Phần lớn sản phẩm của gia công cơ khí không phoi là:", a: ["Các chi tiết được chế tạo theo bản thiết kế", "Các sản phẩm mới được tạo hình với kích thước thô và độ nhẵn bề mặt thấp", "Các chi tiết thành phẩm", "Một đáp án khác"], c: "MQ=="}
 ];
 
 // BANK C (MỚI CẬP NHẬT) - 9 Câu hỏi
@@ -335,4 +383,3 @@ function grade() {
 </script>
 </body>
 </html>
-
