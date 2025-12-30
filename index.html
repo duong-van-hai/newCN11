@@ -121,7 +121,7 @@ let studentClass = "";
 
 // --- DỮ LIỆU CÂU HỎI ---
 
-// BANK A (MỚI - 36 câu từ file docx)
+// BANK A (36 câu - Đã cập nhật)
 const BANK_A = [
     {q: "Nghề nghiệp trong lĩnh vực cơ khí gắn với những công việc nào? Chọn đáp án đúng nhất", a: ["Thiết kế sản phẩm cơ khí; Gia công cơ khí; Bảo dưỡng thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Gia công cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng và sửa chữa thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng và sửa chữa thiết bị cơ khí"], c: "Mg=="},
     {q: "Nghề nghiệp trong lĩnh vực cơ khí không bao gồm công việc nào dưới đây?", a: ["Thiết kế sản phẩm cơ khí", "Gia công cơ khí", "Lắp ráp sản phẩm cơ khí", "Lên kế hoạch kinh doanh sản phẩm cơ khí"], c: "Mw=="},
@@ -161,7 +161,7 @@ const BANK_A = [
     {q: "Tính công nghệ của vật liệu kim loại thể hiện qua đâu?", a: ["Tính giãn nở, tính dẫn nhiệt, tính đàn hồi", "Tính đàn hồi, tính dẫn điện", "Tính rèn, tính đúc, tính hàn, tính mài", "Tính giãn nở, tính dẫn nhiệt, tính dẫn điện"], c: "Mg=="}
 ];
 
-// BANK B (MỚI - 32 câu)
+// BANK B (32 câu - Đã cập nhật)
 const BANK_B = [
     {q: "Nguồn gốc của cao su nhân tạo được chế biến từ đâu?", a: ["Than đá", "Dầu mỏ", "Cây cao su", "Than đá và dầu mỏ"], c: "Mw=="},
     {q: "Cao su không có tính chất nào sau đây:", a: ["Tính đàn hồi cao", "Tính cách nhiệt", "Tính cách âm cao", "Tính dẫn điện"], c: "Mw=="},
@@ -197,17 +197,20 @@ const BANK_B = [
     {q: "Phần lớn sản phẩm của gia công cơ khí không phoi là:", a: ["Các chi tiết được chế tạo theo bản thiết kế", "Các sản phẩm mới được tạo hình với kích thước thô và độ nhẵn bề mặt thấp", "Các chi tiết thành phẩm", "Một đáp án khác"], c: "MQ=="}
 ];
 
-// BANK C (MỚI CẬP NHẬT) - 9 Câu hỏi
+// BANK C (MỚI - 12 câu từ file docx)
 const BANK_C = [
-    {q: "Theo tiêu chuẩn trình bày bản vẽ kĩ thuật, đường gióng kích thước được vẽ bằng nét vẽ nào?", a: ["Nét liền mảnh.", "Nét liền đậm.", "Nét lượn sóng.", "Nét đứt mảnh."], c: "MA=="},
-    {q: "Ngành công nghệ nào biến đổi điện năng thành cơ năng dựa trên nguyên lí cảm ứng điện tử?", a: ["Công nghệ điều khiển và tự động hóa.", "Công nghệ điện – quang.", "Công nghệ điện – cơ.", "Công nghệ điện – điện tử."], c: "Mg=="},
-    {q: "Công nghệ là gì?", a: ["Là giải pháp, quy trình, bí quyết kĩ thuật có hoặc không kèm theo công cụ, phương tiện dùng để biến đổi nguồn lực thành sản phẩm.", "Công nghệ thúc đẩy khoa học.", "Là việc ứng dụng các nguyên lí khoa học vào việc thiết kế, chế tạo, vận hành các máy móc, thiết bị, công trình, quy trình và hệ thống một cách hiệu quả và kinh tế nhất.", "Là hệ thống tri thức về mọi quy luật và sự vận động của vật chất, những quy luật của tự nhiên, xã hội, tư duy."], c: "MA=="},
-    {q: "Ngành nghề nào thuộc ngành cơ khí?", a: ["Kĩ thuật lắp đặt điện và điều khiển trong công nghiệp.", "Hệ thống điện.", "Sửa chữa, cơ khí chế tạo.", "Vận hành nhà máy điện gió, điện mặt trời."], c: "Mg=="},
-    {q: "Nghề nghiệp trong lĩnh vực nào có xu hướng tăng?", a: ["Vận hành máy móc thiết bị, công nghiệp, nông nghiệp.", "Nông nghiệp, thợ lắp ráp, vận hành máy móc thiết bị.", "Công nghiệp, thợ lắp ráp, vận hành máy móc thiết bị.", "Thợ lắp ráp, nông nghiệp, ngư nghiệp."], c: "Mg=="},
-    {q: "Cấu trúc của hệ thống kĩ thuật gồm những thành phần nào?", a: ["Đầu vào, đầu ra và bộ phận hồi tiếp.", "Đầu vào, đầu ra và bộ phận xử lí.", "Đầu vào, đầu ra và bộ phận lưu trữ.", "Đầu vào, đầu ra và bộ phận điều khiển."], c: "MQ=="},
-    {q: "Theo TCVN 7285:2003 quy định khổ giấy của các bản vẽ, có bao nhiêu khổ giấy chính?", a: ["3", "4", "7", "5"], c: "Mw=="},
-    {q: "Sản phẩm nào sau đây là sản phẩm đặc trưng của cuộc Cách mạng công nghiệp lần thứ tư?", a: ["Robot thông minh.", "Máy dệt dùng động cơ hơi nước.", "Bóng đèn sợi đốt.", "Máy tính."], c: "MA=="},
-    {q: "Công nghệ mô phỏng các hoạt động trí tuệ của con người bằng máy móc, đặc biệt là các hệ thống máy tính. Đó là công nghệ gì?", a: ["Công nghệ Robot thông minh.", "Công nghệ trí tuệ nhân tạo.", "Công nghệ in 3D.", "Công nghệ Internet vạn vật."], c: "MA=="}
+    {q: "Vai trò của cơ khí chế tạo trong ngành giao thông vận tải được thể hiện qua sản phẩm nào?", a: ["Máy chụp cộng hưởng từ (MRI)", "Hệ thống tưới tiêu tự động", "Động cơ ô tô, xe máy", "Máy xay xát lúa gạo"], c: "Mg=="},
+    {q: "Trong một dây chuyền sản xuất ô tô, ai là người trực tiếp lắp đặt động cơ vào khung xe?", a: ["Công nhân lắp ráp cơ khí", "Giám đốc nhà máy", "Kỹ sư thiết kế kiểu dáng xe", "Nhân viên bảo vệ nhà máy"], c: "MA=="},
+    {q: "Một trong những tính chất hoá học của vật liệu cơ khí là", a: ["tính cứng", "tính dẫn điện", "tính dẫn nhiệt", "tính chịu ăn mòn"], c: "Mw=="},
+    {q: "Tính chất nào sau đây đặc trưng cho khả năng chống lại biến dạng dẻo hay phá hủy của kim loại dưới tác dụng của ngoại lực?", a: ["Tính dẫn nhiệt", "Tính đúc", "Độ bền (tính bền)", "Khối lượng riêng"], c: "Mg=="},
+    {q: "Vật liệu nào có thể ghi nhớ được hình dạng ban đầu của nó?", a: ["Vật liệu có cơ tính biến thiên", "Nano", "Hợp kim nhớ hình", "Vật liệu kim loại và hợp kim"], c: "Mg=="},
+    {q: "Phương pháp nào sau đây thuộc nhóm “Gia công có phoi” (gia công cắt gọt)?", a: ["Tiện", "Đúc", "Rèn", "Hàn"], c: "MA=="},
+    {q: "Ưu điểm của công nghệ chế tạo phôi bằng phương pháp hàn?", a: ["Mối hàn kém bền", "Mối hàn hở", "Dễ cong vênh", "Tiết kiệm kim loại"], c: "Mw=="},
+    {q: "Trên máy tiện vạn năng, chi tiết gắn dao khi tiện là", a: ["mâm cặp", "ụ động", "bàn gá dao", "hộp tốc độ"], c: "Mg=="},
+    {q: "Sắp xếp các giai đoạn sau đúng với trình tự của quá trình sản xuất cơ khí?", a: ["Chế tạo phôi -> Gia công -> xử lí và bảo vệ -> lắp ráp -> đóng gói", "Gia công -> chế tạo phôi -> kiểm tra -> lắp ráp -> đóng gói", "Gia công -> chế tạo phôi -> lắp ráp -> kiểm tra -> đóng gói", "Chế tạo phôi -> Gia công -> lắp ráp -> kiểm tra -> đóng gói"], c: "MA=="},
+    {q: "Bước “Xử lý và bảo vệ bề mặt” bao gồm các hoạt động nào sau đây?", a: ["Tiện, phay, bào, khoan", "Đúc, rèn, dập", "Sơn, mạ, phủ hóa chất chống ăn mòn", "Lắp ráp bu lông, đai ốc"], c: "Mg=="},
+    {q: "Robot công nghiệp là thiết bị tự động có khả năng gì nổi bật nhất được định nghĩa trong bài học?", a: ["Tự động suy nghĩ như con người", "Thực hiện các thao tác theo chương trình được lập trình sẵn", "Di chuyển với tốc độ ánh sáng", "Tự sửa chữa khi bị hỏng hóc"], c: "MQ=="},
+    {q: "Một dây chuyền đóng gói thực phẩm tự động sử dụng robot để xếp thùng carton lên pallet. Đây là ứng dụng của robot trong công đoạn nào?", a: ["Gia công", "Lắp ráp", "Kiểm tra", "Vận chuyển và xếp dỡ"], c: "Mw=="}
 ];
 
 // BANK P1 (Đã thêm câu hỏi hình chữ H mới)
