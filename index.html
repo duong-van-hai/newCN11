@@ -107,10 +107,7 @@
             <div class="student-result-info" id="res-student-info"></div>
             <div class="score-num" id="score-val">0/7</div>
             <p id="stats-val" style="font-size: 1.2rem;"></p>
-            <div style="display: flex; gap: 10px; justify-content: center;">
-                <button onclick="resetTest()" class="btn" style="width: auto; font-size: 1rem; padding: 10px 20px;">Làm đề mới (Ngay)</button>
-                <button onclick="location.reload()" class="btn" style="width: auto; font-size: 1rem; padding: 10px 20px; background: #64748b;">Thoát ra</button>
-            </div>
+            <button onclick="location.reload()" style="padding:10px 25px; cursor:pointer; border-radius:8px; border:1px solid #ccc; background: white;">Làm đề mới</button>
         </div>
         <h2 style="border-bottom: 2px solid var(--p); padding-bottom: 10px;">CHI TIẾT ĐIỂM SỐ</h2>
         <div id="review-list"></div>
@@ -124,7 +121,7 @@ let studentClass = "";
 
 // --- DỮ LIỆU CÂU HỎI ---
 
-// BANK A (36 câu)
+// BANK A (36 câu - Đã cập nhật)
 const BANK_A = [
     {q: "Nghề nghiệp trong lĩnh vực cơ khí gắn với những công việc nào? Chọn đáp án đúng nhất", a: ["Thiết kế sản phẩm cơ khí; Gia công cơ khí; Bảo dưỡng thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Gia công cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng và sửa chữa thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng và sửa chữa thiết bị cơ khí"], c: "Mg=="},
     {q: "Nghề nghiệp trong lĩnh vực cơ khí không bao gồm công việc nào dưới đây?", a: ["Thiết kế sản phẩm cơ khí", "Gia công cơ khí", "Lắp ráp sản phẩm cơ khí", "Lên kế hoạch kinh doanh sản phẩm cơ khí"], c: "Mw=="},
@@ -164,7 +161,7 @@ const BANK_A = [
     {q: "Tính công nghệ của vật liệu kim loại thể hiện qua đâu?", a: ["Tính giãn nở, tính dẫn nhiệt, tính đàn hồi", "Tính đàn hồi, tính dẫn điện", "Tính rèn, tính đúc, tính hàn, tính mài", "Tính giãn nở, tính dẫn nhiệt, tính dẫn điện"], c: "Mg=="}
 ];
 
-// BANK B (32 câu)
+// BANK B (32 câu - Đã cập nhật)
 const BANK_B = [
     {q: "Nguồn gốc của cao su nhân tạo được chế biến từ đâu?", a: ["Than đá", "Dầu mỏ", "Cây cao su", "Than đá và dầu mỏ"], c: "Mw=="},
     {q: "Cao su không có tính chất nào sau đây:", a: ["Tính đàn hồi cao", "Tính cách nhiệt", "Tính cách âm cao", "Tính dẫn điện"], c: "Mw=="},
@@ -200,7 +197,7 @@ const BANK_B = [
     {q: "Phần lớn sản phẩm của gia công cơ khí không phoi là:", a: ["Các chi tiết được chế tạo theo bản thiết kế", "Các sản phẩm mới được tạo hình với kích thước thô và độ nhẵn bề mặt thấp", "Các chi tiết thành phẩm", "Một đáp án khác"], c: "MQ=="}
 ];
 
-// BANK C (12 câu)
+// BANK C (MỚI - 12 câu từ file docx)
 const BANK_C = [
     {q: "Vai trò của cơ khí chế tạo trong ngành giao thông vận tải được thể hiện qua sản phẩm nào?", a: ["Máy chụp cộng hưởng từ (MRI)", "Hệ thống tưới tiêu tự động", "Động cơ ô tô, xe máy", "Máy xay xát lúa gạo"], c: "Mg=="},
     {q: "Trong một dây chuyền sản xuất ô tô, ai là người trực tiếp lắp đặt động cơ vào khung xe?", a: ["Công nhân lắp ráp cơ khí", "Giám đốc nhà máy", "Kỹ sư thiết kế kiểu dáng xe", "Nhân viên bảo vệ nhà máy"], c: "MA=="},
@@ -216,7 +213,7 @@ const BANK_C = [
     {q: "Một dây chuyền đóng gói thực phẩm tự động sử dụng robot để xếp thùng carton lên pallet. Đây là ứng dụng của robot trong công đoạn nào?", a: ["Gia công", "Lắp ráp", "Kiểm tra", "Vận chuyển và xếp dỡ"], c: "Mw=="}
 ];
 
-// BANK P1 (5 câu tình huống)
+// BANK P1 (MỚI - 5 câu tình huống)
 const BANK_P1 = [
     {
         q: "Trong giờ học Công nghệ, giáo viên đưa ra một miếng cao su đàn hồi thường dùng trong giảm chấn máy móc và hỏi cả lớp: 'Dựa vào kiến thức về vật liệu cơ khí, theo em những nhận định nào sau đây về cao su là chính xác?'",
@@ -270,7 +267,7 @@ const BANK_P1 = [
     }
 ];
 
-// BANK P2 (8 câu)
+// BANK P2 (MỚI - 8 câu từ file P2)
 const BANK_P2 = [
     {
         q: "Khi nghiên cứu về cấu tạo và nguyên lý hoạt động của dây chuyền sản xuất tự động, các học sinh đưa ra các nhận định sau:",
@@ -382,25 +379,6 @@ function startTest() {
     document.getElementById('display-info').innerText = `Học sinh: ${studentName} - Lớp: ${studentClass}`;
     generateQuestions();
     startTimer();
-    window.scrollTo(0,0);
-}
-
-// --- HÀM RESET BÀI THI (LÀM LẠI KHÔNG CẦN NHẬP TÊN) ---
-function resetTest() {
-    // 1. Ẩn màn hình kết quả, hiện lại màn hình thi
-    document.getElementById('res-ui').style.display = 'none';
-    document.getElementById('quiz-ui').style.display = 'block';
-    document.getElementById('timer').style.display = 'block';
-
-    // 2. Reset lại đồng hồ
-    clearInterval(countdown);
-    timerVal = 15 * 60; // Đặt lại 15 phút
-    startTimer();
-
-    // 3. Tạo bộ câu hỏi mới (Trộn lại ngẫu nhiên)
-    generateQuestions();
-
-    // 4. Cuộn lên đầu trang
     window.scrollTo(0,0);
 }
 
