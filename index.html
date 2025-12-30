@@ -267,10 +267,88 @@ const BANK_P1 = [
     }
 ];
 
-// BANK P2 (CŨ - Giữ lại 2 câu)
+// BANK P2 (MỚI - 8 câu từ file P2)
 const BANK_P2 = [
-    {q: "Dựa vào kiến thức về vật liệu cơ khí, nhận định nào sau đây về cao su là chính xác?", a: ["Cao su dẫn điện và dẫn nhiệt tốt nên thường dùng làm dây dẫn. ", "Cao su có hai loại chính là cao su thiên nhiên (tổng hợp từ công nghệ hóa học) và cao su nhân tạo (lấy từ nhựa cây cao su). ", "Cao su nhân tạo có tính chất kém hơn hoàn toàn so với cao su thiên nhiên. ", "Cao su được xếp vào nhóm vật liệu phi kim loại, có tính đàn hồi tốt. "], c: "WzNd"},
-    {q: "Giáo viên giới thiệu 4 mẫu vật: thép carbon, vỏ xe đạp, tấm gốm và composite. Nhận định nào sau đây là đúng?", a: ["Để bốn sản phẩm trên đáp ứng yêu cầu làm việc về tính sử dụng thì chúng phải có các tính chất: cơ học, vật lí, hoá học. ", "Mảnh vật liệu composite (cốt sợi thủy tinh) thuộc nhóm vật liệu mới. ", "Vỏ xe đạp làm bằng cao su nên thuộc nhóm vật liệu kim loại. ", "Tấm gốm cách điện thuộc nhóm vật liệu phi kim loại. "], c: "WzAsIDEsIDNd"}
+    {
+        q: "Khi nghiên cứu về cấu tạo và nguyên lý hoạt động của dây chuyền sản xuất tự động, các học sinh đưa ra các nhận định sau:",
+        a: [
+            "Hệ thống điều khiển (như PLC) đóng vai trò là cơ quan trung tâm, tiếp nhận tín hiệu từ cảm biến để ra lệnh cho các thiết bị chấp hành.",
+            "Cảm biến trong dây chuyền chỉ có nhiệm vụ đếm số lượng sản phẩm sau khi đã hoàn thành để đóng gói.",
+            "Thiết bị vận chuyển (băng tải, robot tự hành) có vai trò kết nối các máy tự động và trạm kiểm tra thành một hệ thống thống nhất.",
+            "Trong dây chuyền tự động, con người hoàn toàn không có vai trò gì và không cần xuất hiện trong khu vực sản xuất."
+        ],
+        c: "WzAsIDJd"
+    },
+    {
+        q: "Một doanh nghiệp cơ khí dự định lắp đặt dây chuyền sản xuất tự động để chế tạo chi tiết máy. Các chuyên gia tư vấn đưa ra các ý kiến sau:",
+        a: [
+            "Dây chuyền tự động sẽ giúp doanh nghiệp nâng cao năng suất lao động và giảm giá thành sản phẩm trên mỗi đơn vị.",
+            "Nếu doanh nghiệp thường xuyên thay đổi mẫu mã sản phẩm với số lượng ít, họ nên chọn dây chuyền tự động cứng (Fixed Automation).",
+            "Việc ứng dụng dây chuyền tự động giúp loại bỏ các lỗi do tâm lý hoặc sức khỏe của người lao động gây ra, đảm bảo chất lượng sản phẩm đồng nhất.",
+            "Khi lắp đặt dây chuyền tự động, doanh nghiệp cần chú trọng đào tạo lại đội ngũ kỹ thuật để thực hiện các nhiệm vụ giám sát, bảo trì và lập trình."
+        ],
+        c: "WzAsIDIsIDNd"
+    },
+    {
+        q: "Khi lập quy trình công nghệ gia công một chi tiết cơ khí (ví dụ: trục bậc), nhóm kỹ thuật đưa ra các nội dung thảo luận sau:",
+        a: [
+            "Việc đầu tiên cần làm là đọc bản vẽ chi tiết để hiểu rõ hình dáng, kích thước và các yêu cầu kỹ thuật như độ bóng, độ chính xác.",
+            "Chọn phôi có kích thước bằng đúng kích thước thành phẩm của chi tiết để tiết kiệm vật liệu và thời gian gia công.",
+            "Thứ tự các bước gia công cần được sắp xếp hợp lý, thông thường phải thực hiện gia công thô trước để bóc tách phần lớn kim loại, sau đó mới gia công tinh.",
+            "Quy trình công nghệ gia công chỉ bao gồm các bước cắt gọt kim loại trên máy công cụ, không bao gồm bước kiểm tra sản phẩm."
+        ],
+        c: "WzAsIDJd"
+    },
+    {
+        q: "Xem xét về các phương pháp gia công cơ khí trong quy trình sản xuất, các nhận định sau đây là đúng hay sai?",
+        a: [
+            "Phương pháp gia công không phôi (đúc, rèn, dập) thường được dùng để tạo phôi cho các bước gia công cắt gọt tiếp theo.",
+            "Tiện là phương pháp gia công cắt gọt phổ biến nhất, chủ yếu dùng để gia công các chi tiết có bề mặt tròn xoay.",
+            "Khi gia công các chi tiết có độ cứng cực cao hoặc hình dạng phức tạp mà dao cắt thông thường không làm được, người ta có thể dùng phương pháp gia công hiện đại như tia nước hoặc laser.",
+            "Độ chính xác gia công chỉ phụ thuộc vào tay nghề của người thợ, không liên quan đến độ chính xác của máy công cụ và dụng cụ cắt."
+        ],
+        c: "WzAsIDEsIDJd"
+    },
+    {
+        q: "Trong bước 'Chọn thiết bị, dụng cụ và chế độ cắt' của quy trình công nghệ, các ý kiến sau được đưa ra:",
+        a: [
+            "Chế độ cắt bao gồm các thông số cơ bản như: vận tốc cắt (v), lượng chạy dao (s) và chiều sâu cắt (t).",
+            "Chọn máy công cụ chỉ dựa vào sở thích của người thợ chứ không cần căn cứ vào kích thước chi tiết hay độ chính xác cần đạt.",
+            "Việc chọn dụng cụ cắt (dao tiện, mũi khoan) phải phù hợp với vật liệu làm phôi và phương pháp gia công đã chọn.",
+            "Nếu tăng tốc độ cắt và chiều sâu cắt quá mức cho phép, có thể gây ra hiện tượng gãy dao, cháy dao hoặc làm biến dạng chi tiết gia công."
+        ],
+        c: "WzAsIDIsIDNd"
+    },
+    {
+        q: "Khi tìm hiểu về các loại kim loại và hợp kim phổ biến trong ngành cơ khí, các học sinh đưa ra các nhận định sau:",
+        a: [
+            "Gang là hợp kim của sắt và carbon, trong đó hàm lượng carbon thấp hơn so với trong thép.",
+            "Thép có khả năng biến dạng dẻo và tính công nghệ tốt, thường được dùng để chế tạo các chi tiết chịu lực lớn như trục, bánh răng.",
+            "Đồng và hợp kim của đồng có tính dẫn điện rất kém nên thường chỉ dùng để làm vật liệu trang trí ngoại thất.",
+            "Hợp kim nhôm được ứng dụng mạnh mẽ trong ngành hàng không vũ trụ nhờ đặc tính nhẹ và độ bền cơ học cao khi được pha trộn hợp lý."
+        ],
+        c: "WzEsIDNd"
+    },
+    {
+        q: "Về các loại vật liệu mới và vật liệu thông minh trong sản xuất hiện đại, hãy xác định tính đúng/sai của các phát biểu sau:",
+        a: [
+            "Vật liệu Nano có kích thước hạt cực nhỏ, giúp cải thiện đáng kể độ cứng và khả năng chịu nhiệt của sản phẩm.",
+            "Vật liệu Composite chỉ bao gồm một thành phần duy nhất là nhựa, không có khả năng chịu lực cao như kim loại.",
+            "Vật liệu nhớ hình có khả năng tự quay lại hình dạng ban đầu sau khi bị biến dạng nếu được kích thích bởi nhiệt độ thích hợp.",
+            "Polymer (nhựa) là loại vật liệu duy nhất hiện nay có thể chịu được nhiệt độ trên 3000 độ C trong buồng đốt tên lửa."
+        ],
+        c: "WzAsIDJd"
+    },
+    {
+        q: "Trong việc lựa chọn và ứng dụng vật liệu vào thực tế sản xuất cơ khí, nhóm kỹ sư đưa ra các quan điểm:",
+        a: [
+            "Để sản xuất dao cắt gọt có độ cứng và độ bền nhiệt cao, người ta ưu tiên sử dụng thép carbon thấp.",
+            "Việc sử dụng vật liệu Composite sợi carbon giúp thân máy bay nhẹ hơn, từ đó tiết kiệm nhiên liệu và tăng hiệu suất bay.",
+            "Nano bạc được ứng dụng trong các thiết bị gia dụng như tủ lạnh, máy giặt chủ yếu để tăng độ bóng bề mặt và tính thẩm mỹ.",
+            "Các loại thép hợp kim đặc biệt được sử dụng để chế tạo các chi tiết máy làm việc trong môi trường khắc nghiệt như axit hoặc nhiệt độ cao."
+        ],
+        c: "WzEsIDNd"
+    }
 ];
 
 let examData = [];
@@ -320,7 +398,7 @@ function generateQuestions() {
     const sB = BANK_B.sort(() => Math.random()-0.5).slice(0, 3);
     const sC = BANK_C.sort(() => Math.random()-0.5).slice(0, 6);
     
-    // Phần 2: 2 câu P1 (Chọn 2 trong 5 câu của kho P1) + 2 câu P2 = 4 câu
+    // Phần 2: 2 câu P1 (Chọn 2 trong 5 câu của kho P1) + 2 câu P2 (Chọn 2 trong 8 câu của kho P2) = 4 câu
     const sP1 = BANK_P1.sort(() => Math.random()-0.5).slice(0, 2); 
     const sP2 = BANK_P2.sort(() => Math.random()-0.5).slice(0, 2);
 
