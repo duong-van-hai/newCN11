@@ -20,6 +20,14 @@
         .inp-field { width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1.1rem; box-sizing: border-box; transition: 0.3s; }
         .inp-field:focus { border-color: var(--p); outline: none; }
         
+        /* THÔNG BÁO DEADLINE */
+        .deadline-badge {
+            background: #fee2e2; color: #991b1b; 
+            padding: 10px; border-radius: 8px; 
+            font-weight: bold; display: inline-block; 
+            margin-bottom: 20px; border: 1px solid #fca5a5;
+        }
+
         /* STYLE CÂU HỎI */
         .section-header { background: #eff6ff; color: var(--p); padding: 15px; border-radius: 8px; margin: 30px 0 20px; border-left: 6px solid var(--p); font-size: 1.2rem; font-weight: bold; text-transform: uppercase; }
         .q-box { margin-bottom: 30px; padding: 20px; border: 1px solid #e2e8f0; border-radius: 10px; background: #fff; }
@@ -79,6 +87,11 @@
 <div class="container">
     <div id="intro-ui" class="intro-box">
         <h1 style="color: #1e293b;">BÀI KIỂM TRA CÔNG NGHỆ 11</h1>
+        
+        <div class="deadline-badge">
+            ⏳ Hạn chót nộp bài: <span id="deadline-txt">Loading...</span>
+        </div>
+
         <p>Vui lòng nhập đầy đủ thông tin trước khi làm bài</p>
         <div style="max-width: 400px; margin: 0 auto;">
             <div class="inp-group">
@@ -115,13 +128,28 @@
 </div>
 
 <script>
+// ============================================
+// CẤU HÌNH BÀI THI (SỬA Ở ĐÂY)
+// ============================================
+const TEST_CONFIG = {
+    // Định dạng: YYYY-MM-DDTHH:mm:ss
+    // Sửa dòng dưới đây để đặt hạn chót
+    deadlineDate: "2026-12-31T23:59:00", 
+    
+    // Thời gian làm bài (phút)
+    durationMinutes: 15 
+};
+
 // BIẾN LƯU THÔNG TIN HS
 let studentName = "";
 let studentClass = "";
+let examData = [];
+let timerVal = TEST_CONFIG.durationMinutes * 60;
+let countdown;
 
 // --- DỮ LIỆU CÂU HỎI ---
 
-// BANK A (36 câu - Đã cập nhật)
+// BANK A (36 câu)
 const BANK_A = [
     {q: "Nghề nghiệp trong lĩnh vực cơ khí gắn với những công việc nào? Chọn đáp án đúng nhất", a: ["Thiết kế sản phẩm cơ khí; Gia công cơ khí; Bảo dưỡng thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Gia công cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng và sửa chữa thiết bị cơ khí", "Thiết kế sản phẩm cơ khí; Lắp ráp sản phẩm cơ khí; Bảo dưỡng và sửa chữa thiết bị cơ khí"], c: "Mg=="},
     {q: "Nghề nghiệp trong lĩnh vực cơ khí không bao gồm công việc nào dưới đây?", a: ["Thiết kế sản phẩm cơ khí", "Gia công cơ khí", "Lắp ráp sản phẩm cơ khí", "Lên kế hoạch kinh doanh sản phẩm cơ khí"], c: "Mw=="},
@@ -161,7 +189,7 @@ const BANK_A = [
     {q: "Tính công nghệ của vật liệu kim loại thể hiện qua đâu?", a: ["Tính giãn nở, tính dẫn nhiệt, tính đàn hồi", "Tính đàn hồi, tính dẫn điện", "Tính rèn, tính đúc, tính hàn, tính mài", "Tính giãn nở, tính dẫn nhiệt, tính dẫn điện"], c: "Mg=="}
 ];
 
-// BANK B (32 câu - Đã cập nhật)
+// BANK B (32 câu)
 const BANK_B = [
     {q: "Nguồn gốc của cao su nhân tạo được chế biến từ đâu?", a: ["Than đá", "Dầu mỏ", "Cây cao su", "Than đá và dầu mỏ"], c: "Mw=="},
     {q: "Cao su không có tính chất nào sau đây:", a: ["Tính đàn hồi cao", "Tính cách nhiệt", "Tính cách âm cao", "Tính dẫn điện"], c: "Mw=="},
@@ -197,7 +225,7 @@ const BANK_B = [
     {q: "Phần lớn sản phẩm của gia công cơ khí không phoi là:", a: ["Các chi tiết được chế tạo theo bản thiết kế", "Các sản phẩm mới được tạo hình với kích thước thô và độ nhẵn bề mặt thấp", "Các chi tiết thành phẩm", "Một đáp án khác"], c: "MQ=="}
 ];
 
-// BANK C (MỚI - 12 câu từ file docx)
+// BANK C (12 câu)
 const BANK_C = [
     {q: "Vai trò của cơ khí chế tạo trong ngành giao thông vận tải được thể hiện qua sản phẩm nào?", a: ["Máy chụp cộng hưởng từ (MRI)", "Hệ thống tưới tiêu tự động", "Động cơ ô tô, xe máy", "Máy xay xát lúa gạo"], c: "Mg=="},
     {q: "Trong một dây chuyền sản xuất ô tô, ai là người trực tiếp lắp đặt động cơ vào khung xe?", a: ["Công nhân lắp ráp cơ khí", "Giám đốc nhà máy", "Kỹ sư thiết kế kiểu dáng xe", "Nhân viên bảo vệ nhà máy"], c: "MA=="},
@@ -213,7 +241,7 @@ const BANK_C = [
     {q: "Một dây chuyền đóng gói thực phẩm tự động sử dụng robot để xếp thùng carton lên pallet. Đây là ứng dụng của robot trong công đoạn nào?", a: ["Gia công", "Lắp ráp", "Kiểm tra", "Vận chuyển và xếp dỡ"], c: "Mw=="}
 ];
 
-// BANK P1 (MỚI - 5 câu tình huống)
+// BANK P1 (5 câu tình huống)
 const BANK_P1 = [
     {
         q: "Trong giờ học Công nghệ, giáo viên đưa ra một miếng cao su đàn hồi thường dùng trong giảm chấn máy móc và hỏi cả lớp: 'Dựa vào kiến thức về vật liệu cơ khí, theo em những nhận định nào sau đây về cao su là chính xác?'",
@@ -267,7 +295,7 @@ const BANK_P1 = [
     }
 ];
 
-// BANK P2 (MỚI - 8 câu từ file P2)
+// BANK P2 (8 câu)
 const BANK_P2 = [
     {
         q: "Khi nghiên cứu về cấu tạo và nguyên lý hoạt động của dây chuyền sản xuất tự động, các học sinh đưa ra các nhận định sau:",
@@ -351,10 +379,6 @@ const BANK_P2 = [
     }
 ];
 
-let examData = [];
-let timerVal = 15 * 60;
-let countdown;
-
 // --- HÀM XỬ LÝ ẢNH ---
 function enlargeImg(imgElement) {
   const modal = document.getElementById("imgModal");
@@ -365,18 +389,39 @@ function enlargeImg(imgElement) {
 function closeModal() { document.getElementById("imgModal").style.display = "none"; }
 document.addEventListener('keydown', function(event){ if(event.key === "Escape") closeModal(); });
 
+// --- HIỂN THỊ DEADLINE TRÊN UI ---
+(function initDeadlineUI(){
+    const d = new Date(TEST_CONFIG.deadlineDate);
+    const formatted = `${d.getHours()}h${d.getMinutes()<10?'0':''}${d.getMinutes()} - ${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
+    document.getElementById('deadline-txt').innerText = formatted;
+})();
+
 // --- HÀM BẮT ĐẦU BÀI THI ---
 function startTest() {
+    // 1. KIỂM TRA HẠN CHÓT
+    const now = new Date().getTime();
+    const deadline = new Date(TEST_CONFIG.deadlineDate).getTime();
+    
+    if (now > deadline) {
+        alert("RẤT TIẾC! ĐÃ HẾT THỜI GIAN LÀM BÀI.\nVui lòng liên hệ giáo viên bộ môn.");
+        return;
+    }
+
+    // 2. NHẬP THÔNG TIN
     studentName = document.getElementById('u-name').value.trim();
     studentClass = document.getElementById('u-class').value.trim();
     if (!studentName || !studentClass) {
         alert("Vui lòng nhập đầy đủ Họ tên và Lớp trước khi bắt đầu!");
         return;
     }
+
+    // 3. CHUYỂN MÀN HÌNH
     document.getElementById('intro-ui').style.display = 'none';
     document.getElementById('quiz-ui').style.display = 'block';
     document.getElementById('timer').style.display = 'block';
     document.getElementById('display-info').innerText = `Học sinh: ${studentName} - Lớp: ${studentClass}`;
+    
+    // 4. KHỞI TẠO
     generateQuestions();
     startTimer();
     window.scrollTo(0,0);
@@ -398,7 +443,7 @@ function generateQuestions() {
     const sB = BANK_B.sort(() => Math.random()-0.5).slice(0, 3);
     const sC = BANK_C.sort(() => Math.random()-0.5).slice(0, 6);
     
-    // Phần 2: 2 câu P1 (Chọn 2 trong 5 câu của kho P1) + 2 câu P2 (Chọn 2 trong 8 câu của kho P2) = 4 câu
+    // Phần 2: 2 câu P1 + 2 câu P2 = 4 câu
     const sP1 = BANK_P1.sort(() => Math.random()-0.5).slice(0, 2); 
     const sP2 = BANK_P2.sort(() => Math.random()-0.5).slice(0, 2);
 
@@ -430,7 +475,7 @@ function generateQuestions() {
     document.getElementById('content').innerHTML = html;
 }
 
-// --- HÀM CHẤM ĐIỂM (GIỮ NGUYÊN) ---
+// --- HÀM CHẤM ĐIỂM ---
 function grade() {
     clearInterval(countdown);
     document.getElementById('timer').style.display = 'none';
